@@ -1,5 +1,5 @@
-#ifndef _PUBLIC_H_
-#define _PUBLIC_H_
+#ifndef _COMMON_H_
+#define _COMMON_H_
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,5 +13,6 @@
 #include "hz.H"
 #include "MOUSE.H"
 #include "pub.h"
+
 
 #endif

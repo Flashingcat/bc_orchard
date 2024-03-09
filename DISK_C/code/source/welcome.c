@@ -17,24 +17,13 @@ void welcome_view()
 	puthz(210, 100, "采摘系统",48, 48, BLACK);
 
 	setfillstyle(SOLID_FILL, WHITE);
-	bar(200-75,340-50,200+75,340+50);
-	bar(480-75,340-50,480+75,340+50);//用户与管理员处形状 
+	draw_button(200-75,340-50,200+75,340+50,LIGHTGREEN);
+	draw_button(480-75,340-50,480+75,340+50,LIGHTGREEN);//用户与管理员处形状 
 	
-	puthz(200-30, 330, "用户", 24, 32, BLACK);		 //用户
+	puthz(200-30, 330, "用户", 24, 32, BLACK);	 //用户
 	puthz(480-38, 330, "管理员", 24, 28, BLACK); //管理员
-
-	setfillstyle(SOLID_FILL, WHITE);
-	bar(640, 0, 595, 45);
-	setlinestyle(0, 0, 3);
-	setcolor(BLACK);
-	line(635, 5, 600, 40);
-	line(635, 5, 600, 5);
-	line(635, 5, 635, 40);
-	line(600, 40, 635, 40);
-	line(600, 40, 600, 5);
-	line(600, 5, 635, 40); //退出按钮
 	
-	
+	ESC_draw();//退出按钮	
 }
 
 /**
@@ -44,20 +33,63 @@ void welcome_view()
   * @retval the num of page 
   */
 int welcome_page(){
-	int num = 0;//设置按钮序号 
+	int num = 0;//设置按钮序号
+/**
+  *     @arg 1:user button
+  *     @arg 2:master button 
+  *     @arg 3:ESC
+  */
 	welcome_view();
 	mouseinit(); //初始化鼠标
 	while (1)
 	{
 		newmouse(&MouseX, &MouseY, &press);
-		if(MouseX>600&&MouseX<635&&MouseY>5&&MouseY<40)
+		
+		//用户交互
+		if(MouseX>200-75&&MouseX<200+75&&MouseY>340-50&&MouseY<340+50)
+		{
+			if(mouse_press(200-75,340-50,200+75,340+50) == 2){
+				if (num == 0)
+				{
+					MouseS = 1;
+					num = 1;
+					button_change(200-75,340-50,200+75,340+50);
+				} //用户按钮 
+				continue;
+			}
+			else if(mouse_press(200-75,340-50,200+75,340+50)//用户按钮 
+			{
+				continue
+			}
+		}
+		
+		//管理员交互
+		if(MouseX>480-75&&MouseX<480+75&&MouseY>340-50&&MouseY<340+50)
+		{
+			if(mouse_press(480-75,340-50,480+75,340+50) == 2){
+				if (num == 0)
+				{
+					MouseS = 1;
+					num = 2;
+					button_change(480-75,340-50,480+75,340+50);
+				} //管理员按钮 
+				continue;
+			}
+			else if(mouse_press(480-75,340-50,480+75,340+50)//用户按钮 
+			{
+				continue
+			}
+		}
+		
+		//ESC交互 
+		else if(MouseX>600&&MouseX<635&&MouseY>5&&MouseY<40)
 		{
 			if(mouse_press(600,5,635,40) == 2){
 				if (num == 0)
 				{
 					MouseS = 1;
 					num = 3;
-					button_change(num);
+					ESC_change();
 				} //退出按钮未按
 				continue;
 			}
@@ -77,7 +109,17 @@ int welcome_page(){
 			if (num != 0)
 			{
 				MouseS = 0;
-				button_recover(num);//页面恢复 
+				switch(num){
+					case 1:
+						button_recover(200-75,340-50,200+75,340+50);
+						break; 
+					case 2:
+						button_recover(480-75,340-50,480+75,340+50);
+						break;
+					case 3:
+						ESC_recover();//页面恢复 
+						break;
+				}
 				num = 0;
 			}
 			continue;
@@ -85,65 +127,4 @@ int welcome_page(){
 	}
 }
 
-/**
-  * @brief  不点击按钮触发按钮颜色改变的事件
-  * @param  num_X: where x can be (1,2,3) to select the model of the button situation.
-  * @retval None 
-  */
-void button_change(int num_X)
-{
-	clrmous(MouseX, MouseY);
-	delay(10);
 
-	setlinestyle(0, 0, 1);
-	setcolor(BLACK);
-
-	switch(num_X)
-	{
-		case 3:
-			setfillstyle(SOLID_FILL, RED);
-			bar(640, 0, 595, 45);
-			setlinestyle(0, 0, 3);
-			setcolor(WHITE);
-			line(635, 5, 600, 40);
-			line(635, 5, 600, 5);
-			line(635, 5, 635, 40);
-			line(600, 40, 635, 40);
-			line(600, 40, 600, 5);
-			line(600, 5, 635, 40); 
-			break;
-	}
-}
-
-/**
-  * @brief  鼠标离开后重置按键 
-  * @param  num_X: where x can be (1,2,3) to select the model of the button situation.
-  * @retval None 
-  */
-void button_recover(int num_X){
-	clrmous(MouseX, MouseY);
-	delay(10);
-
-	setlinestyle(0, 0, 1);
-	setcolor(BLACK);
-	
-	switch(num_X){
-		case 3:
-			setfillstyle(SOLID_FILL, WHITE);
-			bar(640, 0, 595, 45);
-			setlinestyle(0, 0, 3);
-			setcolor(BLACK);
-			line(635, 5, 600, 40);
-			line(635, 5, 600, 5);
-			line(635, 5, 635, 40);
-			line(600, 40, 635, 40);
-			line(600, 40, 600, 5);
-			line(600, 5, 635, 40);
-			break;
-		default:
-			closegraph();
-			printf("wrong syntax");
-			exit(1);
-			break;
-	}
-} 

@@ -1,3 +1,11 @@
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include"mouse.h"
+#include"pub.h"
+
 /**************************************
 函数名：draw_button
 输入参数：x,y,x1,y1,color
@@ -19,14 +27,17 @@ void draw_button(int x,int y,int x1,int y1,int color)
 
 
 
-/**************************************
-函数名：push_button
-输入参数：x,y,x1,y1
-函数描述：绘制矩形按钮按下后的动态感
-返回值：无
-****************************************/
-void push_button(int x,int y,int x1,int y1)
+/**
+  * @brief  不点击按钮触发按钮颜色改变的事件
+  * @param  x,y,x1,y1:the coordinates of the button
+  * @param  color:the color change of the button
+  * @retval None 
+  */
+void button_change(int x,int y,int x1,int y1)
 {
+	clrmous(MouseX, MouseY);
+	delay(10);
+
 	setlinestyle(0,0,3);
 	setcolor(DARKGRAY);
 	line(x-1,y-1,x1+1,y-1);
@@ -34,7 +45,7 @@ void push_button(int x,int y,int x1,int y1)
 	setcolor(WHITE);
 	line(x1+1,y1+1,x1+1,y-1);
 	line(x1+1,y1+1,x-1,y1+1);
-	delay(500);
+	delay(10);
 }
 
 
@@ -45,8 +56,11 @@ void push_button(int x,int y,int x1,int y1)
 函数描述：恢复矩形按钮
 返回值：无
 ****************************************/
-void re_button(int x,int y,int x1,int y1)
+void button_recover(int x,int y,int x1,int y1)
 {
+	clrmous(MouseX, MouseY);
+	delay(10);
+
 	setlinestyle(0,0,3);
 	setcolor(WHITE);
 	line(x-1,y-1,x1+1,y-1);
@@ -54,8 +68,76 @@ void re_button(int x,int y,int x1,int y1)
 	setcolor(DARKGRAY);
 	line(x1+1,y1+1,x1+1,y-1);
 	line(x1+1,y1+1,x-1,y1+1);
-	delay(100);
+	delay(10);
 }
+
+
+
+/**
+  * @brief  一个简单的绘制ESC按钮的函数
+  * @param  None
+  * @retval None 
+  */
+void ESC_draw(){
+	setfillstyle(SOLID_FILL, WHITE);
+	bar(640, 0, 595, 45);
+	setlinestyle(0, 0, 3);
+	setcolor(BLACK);
+	line(635, 5, 600, 40);
+	line(635, 5, 600, 5);
+	line(635, 5, 635, 40);
+	line(600, 40, 635, 40);
+	line(600, 40, 600, 5);
+	line(600, 5, 635, 40); //退出按钮
+}
+
+
+
+/**
+  * @brief  不点击退出按钮触发退出按钮颜色改变的事件
+  * @param  None
+  * @retval None 
+  */
+void ESC_change()
+{
+	clrmous(MouseX, MouseY);
+	delay(10);
+
+	setlinestyle(0, 0, 1);
+	setcolor(BLACK);
+
+	setfillstyle(SOLID_FILL, RED);
+	bar(640, 0, 595, 45);
+	setlinestyle(0, 0, 3);
+	setcolor(WHITE);
+	line(635, 5, 600, 40);
+	line(635, 5, 600, 5);
+	line(635, 5, 635, 40);
+	line(600, 40, 635, 40);
+	line(600, 40, 600, 5);
+	line(600, 5, 635, 40); 
+
+	
+	
+}
+
+
+
+/**
+  * @brief  鼠标离开退出按键后重置按键 
+  * @param  None
+  * @retval None 
+  */
+void ESC_recover(){
+	clrmous(MouseX, MouseY);
+	delay(10);
+
+	setlinestyle(0, 0, 1);
+	setcolor(BLACK);
+	
+	ESC_draw();
+	
+} 
 
 
 
