@@ -12,5 +12,6 @@
 #include <time.h>
 #include "hz.H"
 #include "MOUSE.H"
+#include "pub.h"
 
 #endif

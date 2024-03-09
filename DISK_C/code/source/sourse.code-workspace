@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../../防疫 宋家俊&易鹏飞/DISK_C/XITONG/sourse"
+		},
+		{
+			"path": "../../../../防疫 宋家俊&易鹏飞/DISK_C/XITONG/HEAD"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"MOUSE.C": "cpp",
+			"main.C": "cpp"
+		}
+	}
+}
