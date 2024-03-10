@@ -23,7 +23,7 @@ void welcome_view()
 	puthz(200-30, 330, "用户", 24, 32, BLACK);	 //用户
 	puthz(480-38, 330, "管理员", 24, 28, BLACK); //管理员
 	
-	ESC_draw();//退出按钮	
+	ESC_draw();//退出按钮
 }
 
 /**
@@ -57,9 +57,10 @@ int welcome_page(){
 				} //用户按钮 
 				continue;
 			}
-			else if(mouse_press(200-75,340-50,200+75,340+50)//用户按钮 
+			else if(mouse_press(200-75,340-50,200+75,340+50))//用户按钮
 			{
-				continue
+				delay(1000);
+				return 1;
 			}
 		}
 		
@@ -75,9 +76,10 @@ int welcome_page(){
 				} //管理员按钮 
 				continue;
 			}
-			else if(mouse_press(480-75,340-50,480+75,340+50)//用户按钮 
+			else if(mouse_press(480-75,340-50,480+75,340+50))//用户按钮
 			{
-				continue
+                delay(1000);
+		     	return 2;
 			}
 		}
 		
