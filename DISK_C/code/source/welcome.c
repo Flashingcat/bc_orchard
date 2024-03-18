@@ -1,3 +1,9 @@
+/**
+  ******************************************************************************
+  * @file   welcome.c
+  * @brief   This file is used to display welcome interface.
+  ******************************************************************************
+  */
 #include"welcome.h" 
 #include"common.h"
 

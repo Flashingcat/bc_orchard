@@ -1,3 +1,9 @@
+/**
+  ******************************************************************************
+  * @file   pub.h
+  * @brief   This file provides some small but usefull functions such as draw some common buttons
+  ******************************************************************************
+  */
 #ifndef _pub.h_
 #define _pub.h_
 

@@ -1,3 +1,9 @@
+/**
+  ******************************************************************************
+  * @file   common.h
+  * @brief   This file provides all fundamental functions
+  ******************************************************************************
+  */
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
@@ -10,7 +16,5 @@
 #include"hz.h"
 #include"pub.h"
 #include"struct.h"
-
-
 
 #endif

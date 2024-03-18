@@ -1,46 +1,59 @@
+/**
+  ******************************************************************************
+  * @file   struct.h
+  * @brief   This file provides all structure
+  ******************************************************************************
+  */
 #ifndef _struct_H_
 #define _struct_H_
 
-typedef struct User//å°è£…å‘˜å·¥ä¿¡æ¯
-{
-	char ID[20];		//18ä½ï¼Œèº«ä»½è¯
-	char password[20];	//8-16ä½ï¼Œå¯†ç 
-	char telephone[15];	//11ä½ï¼Œç”µè¯å·ç 
-	char name[20];		//ç”¨æˆ·å
-}User;
-
-typedef struct Admin//å°è£…ç®¡ç†å‘˜ä¿¡æ¯
-{	   	
-	char password[20];	//8-16ä½ï¼Œå¯†ç 
-	char telephone[15];	//11ä½ï¼Œç”µè¯å·ç 
-	char name[20];		//ç”¨æˆ·å
-}Admin;
-
-typedef struct Fruit//å°è£…é‡‡æ‘˜æ—æœä¿¡æ¯
-{
-	char name[10];		    //æ°´æœåç§°
-	char date[15];		    //é‡‡æ‘˜æ—¥æœŸ
-	int weight;		        //æœé‡
-	char description[20];	//æè¿°
-	char rate[2];		    //æ°´æœè¯„çº§
-}Fruit;
-
-typedef struct Working//å°è£…å‘˜å·¥å·¥ä½œç»©æ•ˆ
-{   
-    User* worker;         //å¯¹åº”å‘˜å·¥çš„æŒ‡é’ˆ          
-	char work_time[15];	//æœ¬æœˆå·¥ä½œæ—¶é—´
-	int salary;         //æœ¬æœˆåº”ä»˜è–ªæ°´
-	char record[20];	//æœ€è¿‘ä¸€æ¬¡å·¥ä½œè®°å½•
-	char rate[2];		//å‘˜å·¥ç»©æ•ˆè¯„ä»·
+typedef struct Working//·â×°Ô±¹¤¹¤×÷¼¨Ğ§
+{      
+	char work_time[15];	//±¾ÔÂ¹¤×÷Ê±¼ä
+	int salary;         //±¾ÔÂÓ¦¸¶Ğ½Ë®
+	char record[20];	//×î½üÒ»´Î¹¤×÷¼ÇÂ¼
+	char rate[2];		//Ô±¹¤¼¨Ğ§ÆÀ¼Û
 }Working;
 
-typedef struct Mail//å°è£…ä¿¡æ¯
+typedef struct User//·â×°Ô±¹¤ĞÅÏ¢
 {
-	char tittle[30];	//ä¿¡æ¯æ ‡é¢˜
-	char content[201];	//ä¿¡æ¯å†…å®¹
-	char time[20];		//ä¿¡æ¯å‘é€æ—¶é—´
-	int reading;		//åˆ¤æ–­æ˜¯å¦å·²è¯»å‚æ•°
-	int sender;         //ç¡®å®šå‘é€ä¿¡æ¯è€…æ˜¯ç³»ç»Ÿï¼Œç®¡ç†å‘˜è¿˜æ˜¯å…¶ä»–å‘˜å·¥
+    Working worker;     //¶ÔÓ¦Ô±¹¤¼¨Ğ§	
+	char ID[20];		//18Î»£¬Éí·İÖ¤
+	char password[20];	//8-16Î»£¬ÃÜÂë
+	char telephone[15];	//11Î»£¬µç»°ºÅÂë
+	char name[20];		//ÓÃ»§Ãû
+}User;
+
+typedef struct Admin//·â×°¹ÜÀíÔ±ĞÅÏ¢
+{	   	
+	char password[20];	//8-16Î»£¬ÃÜÂë
+	char telephone[15];	//11Î»£¬µç»°ºÅÂë
+	char name[20];		//ÓÃ»§Ãû
+}Admin;
+
+typedef struct Fruit//·â×°²ÉÕªÁÖ¹ûĞÅÏ¢
+{
+	char name[10];		    //Ë®¹ûÃû³Æ
+	char date[15];		    //²ÉÕªÈÕÆÚ
+	int weight;		        //¹ûÖØ
+	char description[20];	//ÃèÊö
+	char rate[2];		    //Ë®¹ûÆÀ¼¶
+}Fruit;
+
+typedef struct Fruit_list//²ÉÕªÁÖ¹ûµÄÁ´±í
+{
+	struct Fruit_list *next;//Ö¸ÏòÏÂÒ»¸öÁÖ¹û
+	int num;				//ÁÖ¹ûÊıÁ¿
+	Fruit fruit;			//ÁÖ¹ûÌØÕ÷
+}Fruit_node;
+
+typedef struct Mail//·â×°ĞÅÏ¢
+{
+	char tittle[30];	//ĞÅÏ¢±êÌâ
+	char content[201];	//ĞÅÏ¢ÄÚÈİ
+	char time[20];		//ĞÅÏ¢·¢ËÍÊ±¼ä
+	int reading;		//ÅĞ¶ÏÊÇ·ñÒÑ¶Á²ÎÊı
+	int sender;         //È·¶¨·¢ËÍĞÅÏ¢ÕßÊÇÏµÍ³£¬¹ÜÀíÔ±»¹ÊÇÆäËûÔ±¹¤
 }MAIL;
 
 #endif

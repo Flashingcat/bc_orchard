@@ -1,3 +1,9 @@
+/**
+  ******************************************************************************
+  * @file   pub.c
+  * @brief   This file provides some small but usefull functions such as draw some common buttons
+  ******************************************************************************
+  */
 #include<conio.h>
 #include<graphics.h>
 #include<dos.h>
@@ -7,10 +13,10 @@
 #include"pub.h"
 
 /**************************************
-å‡½æ•°åï¼šdraw_button
-è¾“å…¥å‚æ•°ï¼šx,y,x1,y1,color
-å‡½æ•°æè¿°ï¼šç»˜åˆ¶çŸ©å½¢æŒ‰é’®
-è¿”å›å€¼ï¼šæ— 
+º¯ÊıÃû£ºdraw_button
+ÊäÈë²ÎÊı£ºx,y,x1,y1,color
+º¯ÊıÃèÊö£º»æÖÆ¾ØĞÎ°´Å¥
+·µ»ØÖµ£ºÎŞ
 ****************************************/
 void draw_button(int x,int y,int x1,int y1,int color)
 {
@@ -28,7 +34,7 @@ void draw_button(int x,int y,int x1,int y1,int color)
 
 
 /**
-  * @brief  ä¸ç‚¹å‡»æŒ‰é’®è§¦å‘æŒ‰é’®é¢œè‰²æ”¹å˜çš„äº‹ä»¶
+  * @brief  ²»µã»÷°´Å¥´¥·¢°´Å¥ÑÕÉ«¸Ä±äµÄÊÂ¼ş
   * @param  x,y,x1,y1:the coordinates of the button
   * @param  color:the color change of the button
   * @retval None 
@@ -50,12 +56,12 @@ void button_change(int x,int y,int x1,int y1)
 
 
 
-/**************************************
-å‡½æ•°åï¼šre_button
-è¾“å…¥å‚æ•°ï¼šx,y,x1,y1
-å‡½æ•°æè¿°ï¼šæ¢å¤çŸ©å½¢æŒ‰é’®
-è¿”å›å€¼ï¼šæ— 
-****************************************/
+/**
+  * @brief  »Ö¸´°´Å¥
+  * @param  x,y,x1,y1:the coordinates of the button
+  * @param  color:the color change of the button
+  * @retval None 
+  */
 void button_recover(int x,int y,int x1,int y1)
 {
 	clrmous(MouseX, MouseY);
@@ -74,7 +80,7 @@ void button_recover(int x,int y,int x1,int y1)
 
 
 /**
-  * @brief  ä¸€ä¸ªç®€å•çš„ç»˜åˆ¶ESCæŒ‰é’®çš„å‡½æ•°
+  * @brief  Ò»¸ö¼òµ¥µÄ»æÖÆESC°´Å¥µÄº¯Êı
   * @param  None
   * @retval None 
   */
@@ -88,13 +94,13 @@ void ESC_draw(){
 	line(635, 5, 635, 40);
 	line(600, 40, 635, 40);
 	line(600, 40, 600, 5);
-	line(600, 5, 635, 40); //é€€å‡ºæŒ‰é’®
+	line(600, 5, 635, 40); //ÍË³ö°´Å¥
 }
 
 
 
 /**
-  * @brief  ä¸ç‚¹å‡»é€€å‡ºæŒ‰é’®è§¦å‘é€€å‡ºæŒ‰é’®é¢œè‰²æ”¹å˜çš„äº‹ä»¶
+  * @brief  ²»µã»÷ÍË³ö°´Å¥´¥·¢ÍË³ö°´Å¥ÑÕÉ«¸Ä±äµÄÊÂ¼ş
   * @param  None
   * @retval None 
   */
@@ -116,15 +122,12 @@ void ESC_change()
 	line(600, 40, 635, 40);
 	line(600, 40, 600, 5);
 	line(600, 5, 635, 40); 
-
-	
-	
 }
 
 
 
 /**
-  * @brief  é¼ æ ‡ç¦»å¼€é€€å‡ºæŒ‰é”®åé‡ç½®æŒ‰é”® 
+  * @brief  Êó±êÀë¿ªÍË³ö°´¼üºóÖØÖÃ°´¼ü 
   * @param  None
   * @retval None 
   */
@@ -142,10 +145,10 @@ void ESC_recover(){
 
 
 /*********************************************
- å‡½æ•°å:refram 
- è¾“å…¥å‚æ•°:x,y,length,wide 
- å‡½æ•°æè¿°ï¼šç»˜åˆ¶è¾“å…¥æ¡† 
- è¿”å›å€¼:æ—  
+ º¯ÊıÃû:refram 
+ ÊäÈë²ÎÊı:x,y,length,wide 
+ º¯ÊıÃèÊö£º»æÖÆÊäÈë¿ò 
+ ·µ»ØÖµ:ÎŞ 
  ***********************************************/
 void refram(int x,int y,int length,int wide)
 {
@@ -160,10 +163,10 @@ void refram(int x,int y,int length,int wide)
 
 
 /*********************************************
- å‡½æ•°å:in_visible1 
- è¾“å…¥å‚æ•°:x,y,max,min,length,wide,con
- å‡½æ•°æè¿°ï¼šè¾“å…¥ä¸éœ€è¦éšè—çš„ä¿¡æ¯(ä¸é™è¾“å…¥å†…å®¹) 
- è¿”å›å€¼:æ—  
+ º¯ÊıÃû:in_visible1 
+ ÊäÈë²ÎÊı:x,y,max,min,length,wide,con
+ º¯ÊıÃèÊö£ºÊäÈë²»ĞèÒªÒş²ØµÄĞÅÏ¢(²»ÏŞÊäÈëÄÚÈİ) 
+ ·µ»ØÖµ:ÎŞ 
  ***********************************************/
 void in_visible1(int x,int y,int max,int min,int length, int wide,char *con)
 {
@@ -176,7 +179,7 @@ void in_visible1(int x,int y,int max,int min,int length, int wide,char *con)
 	setfillstyle(1,WHITE);
 	bar(x,y,x+length,y+wide);
 	setcolor(DARKGRAY);
-	settextjustify(LEFT_TEXT,TOP_TEXT);//å‰æœŸå‡†å¤‡ï¼Œè§„å®šå¯¹é½æ–¹å¼
+	settextjustify(LEFT_TEXT,TOP_TEXT);//Ç°ÆÚ×¼±¸£¬¹æ¶¨¶ÔÆë·½Ê½
 	if(length<300)
 	{
 		settextstyle(3,0,2);
@@ -198,21 +201,21 @@ void in_visible1(int x,int y,int max,int min,int length, int wide,char *con)
 			j=0;
 			bar(x+size/4+i*size,y,x+size/2+i*size,y+wide);
 			c=bioskey(0);
-			if(c!='\n'&&c!='\r'&&c!=' '&&c!='m')//ä¸è¾“å…¥å›è½¦å’Œç©ºæ ¼æ—¶
+			if(c!='\n'&&c!='\r'&&c!=' '&&c!='m')//²»ÊäÈë»Ø³µºÍ¿Õ¸ñÊ±
 			{
 				if(i<max)
 				{
-					if(c!='\b')//ä¸è¾“å…¥é€€æ ¼é”®æ—¶
+					if(c!='\b')//²»ÊäÈëÍË¸ñ¼üÊ±
 					{
 						*(con+i)=c;
 						*(con+i+1)='\0';
-						outtextxy(x+size/2+i*size,y,con+i);//è¾“å…¥å€¼
+						outtextxy(x+size/2+i*size,y,con+i);//ÊäÈëÖµ
 						i++;
 					}
-					else if(c=='\b'&&i>0)//è¾“å…¥é€€æ ¼é”®
+					else if(c=='\b'&&i>0)//ÊäÈëÍË¸ñ¼ü
 					{
 						*(con+i-1)='\0';
-						bar(x-size/2+i*size,y,x+size/2+i*size,y+wide);//é®ç›–æ–‡å­—
+						bar(x-size/2+i*size,y,x+size/2+i*size,y+wide);//ÕÚ¸ÇÎÄ×Ö
 						i--;
 					}
 				}
@@ -221,7 +224,7 @@ void in_visible1(int x,int y,int max,int min,int length, int wide,char *con)
 					if(c=='\b'&&i>0)
 					{
 						*(con+i-1)='\0';
-						bar(x-size/2+i*size,y,x+size/2+i*size,y+wide);//é®ç›–æ–‡å­—
+						bar(x-size/2+i*size,y,x+size/2+i*size,y+wide);//ÕÚ¸ÇÎÄ×Ö
 						i--;
 					}
 					else
@@ -230,12 +233,12 @@ void in_visible1(int x,int y,int max,int min,int length, int wide,char *con)
 					}
 				}
 			}
-			else if(c=='\r'||c=='\n')//è¾“å…¥å›è½¦æ—¶
+			else if(c=='\r'||c=='\n')//ÊäÈë»Ø³µÊ±
 			{
 				if(i<min)
 				{
 					bar(x,y,x+length,y+wide);
-					puthz(x+length-50,y+3,"è¿‡çŸ­",24,24,LIGHTGRAY);
+					puthz(x+length-50,y+3,"¹ı¶Ì",24,24,LIGHTGRAY);
 					con[0]='\0';
 					break;
 				}
@@ -245,7 +248,7 @@ void in_visible1(int x,int y,int max,int min,int length, int wide,char *con)
 					break;
 				}
 			}
-			else if(c == ' ' || c == 'm')//è¾“å…¥ç©ºæ ¼æ—¶
+			else if(c == ' ' || c == 'm')//ÊäÈë¿Õ¸ñÊ±
 				continue;
 		}
 		else
@@ -316,13 +319,13 @@ void in_hidden(int x,int y,int max, int min,int length,int wide,char *con)
 						delay(100);
 						bar(x+8+i*16,y,x+19+i*16,y+wide);
 						delay(10);
-						outtextxy(x+8+i*16,y,"*");//è¾“å…¥*
+						outtextxy(x+8+i*16,y,"*");//ÊäÈë*
 						i++;
 					}
-					else if(c=='\b'&&i>0)//è¾“å…¥é€€æ ¼é”®
+					else if(c=='\b'&&i>0)//ÊäÈëÍË¸ñ¼ü
 					{
 						*(con+i-1)='\0';
-						bar(x-8+i*16,y,x+8+i*16,y+wide);//é®ç›–
+						bar(x-8+i*16,y,x+8+i*16,y+wide);//ÕÚ¸Ç
 						i--;
 					}
 				}
@@ -331,7 +334,7 @@ void in_hidden(int x,int y,int max, int min,int length,int wide,char *con)
 					if(c=='\b'&&i>0)
 					{
 						*(con+i-1)='\0';
-						bar(x-8+i*16,y,x+8+i*16,y+wide);//é®ç›–
+						bar(x-8+i*16,y,x+8+i*16,y+wide);//ÕÚ¸Ç
 						i--;
 					}
 					else
@@ -345,7 +348,7 @@ void in_hidden(int x,int y,int max, int min,int length,int wide,char *con)
 				if(i<min)
 				{
 					bar(x,y,x+length,y+wide);
-					puthz(500,y+3,"è¿‡çŸ­",24,24,LIGHTGRAY);
+					puthz(500,y+3,"¹ı¶Ì",24,24,LIGHTGRAY);
 					con[0]='\0';
 					break;
 				}
@@ -391,14 +394,15 @@ void in_hidden(int x,int y,int max, int min,int length,int wide,char *con)
 
 
 /*********************************************
- å‡½æ•°å:clearinput 
- è¾“å…¥å‚æ•°:x,y,length,wide,a
- å‡½æ•°æè¿°ï¼šæ¸…é™¤å·²è¾“å…¥çš„ä¿¡æ¯
- è¿”å›å€¼:æ—  
+ º¯ÊıÃû:clearinput 
+ ÊäÈë²ÎÊı:x,y,length,wide,a
+ º¯ÊıÃèÊö£ºÇå³ıÒÑÊäÈëµÄĞÅÏ¢
+ ·µ»ØÖµ:ÎŞ 
  ***********************************************/
 void clearinput (int x,int y,int length,int wide,char *a)
 {
 	setfillstyle(1,WHITE);
-	bar(x,y,x+length,y+wide);//ç”¨ç™½è‰²é®ç›–xä¹‹ålengthä¸ªåƒç´ 
+	bar(x,y,x+length,y+wide);//ÓÃ°×É«ÕÚ¸ÇxÖ®ºólength¸öÏñËØ
 	a[0]='\0';
 }
+

@@ -97,7 +97,7 @@ void draw_admin(void)
 ***********************************************/
 int user_log(User *u)
 {   draw_user('1');
-    delay(8000);
+	getchar();
 	return 0;
 	/*char  flag;
 	int i,len;
@@ -310,7 +310,7 @@ int user_log(User *u)
 int admin_log(void)
 {   
     draw_admin();
-	delay(8000);
+	getchar();
 	return 0;
 	/*char name[10];
 	char password[15];
@@ -411,3 +411,4 @@ int admin_log(void)
 		
 	}*/
 }
+
