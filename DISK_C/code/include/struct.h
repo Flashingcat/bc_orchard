@@ -31,21 +31,30 @@ typedef struct Admin//封装管理员信息
 	char name[20];		//用户名
 }Admin;
 
-typedef struct Fruit//封装采摘林果信息
+typedef struct Fruit		//封装采摘林果信息
 {
-	char name[10];		    //水果名称
-	char date[15];		    //采摘日期
+	int num;				//数量
 	int weight;		        //果重
-	char description[20];	//描述
-	char rate[2];		    //水果评级
+	char* description;		//描述
+	char* rate;		    	//水果评级
 }Fruit;
 
-typedef struct Fruit_list//采摘林果的链表
+typedef struct Fruit_list	//采摘一种林果的链表
 {
-	struct Fruit_list *next;//指向下一个林果
-	int num;				//林果数量
-	Fruit fruit;			//林果特征
+	struct Fruit_list *next;
+	int last_month;			//腐坏时间
+	int first_data;			//采摘时间
+	Fruit fruit;		   	//水果信息
 }Fruit_node;
+
+typedef struct kind_list	//所以的林果
+{
+	struct kind_list *next; //指向下一个林果
+	char name[10];		    //水果名称
+	int time;				//先保留几次采摘记录
+	int num;				//林果数量
+	Fruit_node* fruit_list;	//林果采摘次数
+}kind_node;
 
 typedef struct Mail//封装信息
 {
